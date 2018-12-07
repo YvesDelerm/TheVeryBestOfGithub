@@ -16,4 +16,7 @@ public interface RepoDao {
 
     @Query("SELECT * FROM repo")
     LiveData<List<Repo>> getAllRepos();
+
+    @Query("SELECT * FROM repo where id= :repoId")
+    Repo findById(int repoId);
 }

@@ -4,7 +4,6 @@ import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
-import fr.ydelerm.verybestof.model.Owner;
 import fr.ydelerm.verybestof.model.Repo;
 
 @Database(entities = {Repo.class}, version = 1)

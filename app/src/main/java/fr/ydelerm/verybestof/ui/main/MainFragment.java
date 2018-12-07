@@ -40,11 +40,11 @@ public class MainFragment extends Fragment {
         final MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         viewModel.getTrendingRepos().observe(this, new Observer<List<Repo>>() {
             @Override
-            public void onChanged(@Nullable List<Repo> movies) {
-                recyclerView.swapAdapter(new ReposAdapter(movies), true);
+            public void onChanged(@Nullable List<Repo> repos) {
+                recyclerView.swapAdapter(new ReposAdapter(getContext(), repos), true);
             }
         });
-        recyclerView.setAdapter(new ReposAdapter(new ArrayList<Repo>()));
+        recyclerView.setAdapter(new ReposAdapter(getContext(), new ArrayList<Repo>()));
         viewModel.refresh(false);
 
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
