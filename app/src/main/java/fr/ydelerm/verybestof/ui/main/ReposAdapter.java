@@ -1,11 +1,14 @@
 package fr.ydelerm.verybestof.ui.main;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
 import fr.ydelerm.verybestof.R;
 import fr.ydelerm.verybestof.model.Repo;
 
@@ -30,6 +33,11 @@ class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.RepoViewHolder> {
     public void onBindViewHolder(@NonNull final RepoViewHolder holder, int position) {
         Repo repo = repos.get(position);
         holder.tvName.setText(repo.getName());
+        Picasso.get()
+                .load(repo.getOwner().getAvatarUrl())
+                .placeholder(R.drawable.account)
+                .error(R.drawable.account)
+                .into(holder.ivAvatar);
     }
 
     @Override
@@ -39,10 +47,12 @@ class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.RepoViewHolder> {
 
     static class RepoViewHolder extends RecyclerView.ViewHolder {
         final TextView tvName;
+        final ImageView ivAvatar;
 
         RepoViewHolder(@NonNull View v) {
             super(v);
             tvName = v.findViewById(R.id.name);
+            ivAvatar = v.findViewById(R.id.avatar);
         }
     }
 }

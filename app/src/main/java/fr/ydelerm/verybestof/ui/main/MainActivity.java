@@ -1,8 +1,9 @@
-package fr.ydelerm.verybestof;
+package fr.ydelerm.verybestof.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import fr.ydelerm.verybestof.R;
 import fr.ydelerm.verybestof.ui.main.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
